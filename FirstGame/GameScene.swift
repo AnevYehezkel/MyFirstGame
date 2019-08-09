@@ -1,19 +1,13 @@
-//
-//  GameScene.swift
-//  FirstGame
-//
-//  Created by Anev Yehezkel on 8/9/19.
-//  Copyright © 2019 Anev Yehezkel. All rights reserved.
-//
-
 import SpriteKit
 import GameplayKit
 
+// Es un objeto que representa todo el contenido de SpriteKit en una escena
 class GameScene: SKScene {
     
     private var label : SKLabelNode?
     private var spinnyNode : SKShapeNode?
     
+    // Dibuja la escena cuando presionas algo
     override func didMove(to view: SKView) {
         
         // Get label node from scene and store it for use later
@@ -62,6 +56,7 @@ class GameScene: SKScene {
         }
     }
     
+    // Es llamado cuando el usuario toca la pantalla
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if let label = self.label {
             label.run(SKAction.init(named: "Pulse")!, withKey: "fadeInOut")
@@ -69,19 +64,18 @@ class GameScene: SKScene {
         
         for t in touches { self.touchDown(atPoint: t.location(in: self)) }
     }
-    
+    // Es llamado cuando mueves el dedo en la pantalla
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         for t in touches { self.touchMoved(toPoint: t.location(in: self)) }
     }
-    
+    // Es llamado cuando sueltas el dedo de la pantalla
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         for t in touches { self.touchUp(atPoint: t.location(in: self)) }
     }
-    
+    // Es llamada cuando tu tocas algo pero te arrepientes
     override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
         for t in touches { self.touchUp(atPoint: t.location(in: self)) }
     }
-    
     
     override func update(_ currentTime: TimeInterval) {
         // Called before each frame is rendered

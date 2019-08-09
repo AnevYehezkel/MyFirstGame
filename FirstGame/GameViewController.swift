@@ -1,17 +1,10 @@
-//
-//  GameViewController.swift
-//  FirstGame
-//
-//  Created by Anev Yehezkel on 8/9/19.
-//  Copyright © 2019 Anev Yehezkel. All rights reserved.
-//
-
 import UIKit
 import SpriteKit
 import GameplayKit
 
+// Esta clase se encarga de inicializar un SKScene y añadirlo al view del viewController
 class GameViewController: UIViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
